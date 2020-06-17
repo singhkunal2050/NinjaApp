@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 
 main() => runApp(NinjaApp());
 
-class NinjaApp extends StatelessWidget {
+class NinjaApp extends StatefulWidget {
+  @override
+  _NinjaAppState createState() => _NinjaAppState();
+}
+
+class _NinjaAppState extends State<NinjaApp> {
+  int age = 0;
+
+  void add() {
+    setState(() {
+      this.age++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: Colors.grey[800],
         appBar: AppBar(
           backgroundColor: Colors.grey[850],
           centerTitle: true,
@@ -22,7 +35,7 @@ class NinjaApp extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(40, 40, 40, 0),
+          padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -70,7 +83,7 @@ class NinjaApp extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "21",
+                '$age',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -84,20 +97,48 @@ class NinjaApp extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Icon(
-                    Icons.access_alarm,
+                    Icons.email,
                     color: Colors.blueGrey,
                   ),
                   SizedBox(
                     width: 20,
                   ),
-                  Text(
-                    "Kunal is trying to learn flutter",
-                    style: TextStyle(color: Colors.grey[300], fontSize: 20),
+                  Expanded(
+                    child: Text(
+                      "singhkunal2051@gmail.com",
+                      style: TextStyle(color: Colors.grey[300], fontSize: 20),
+                    ),
                   ),
                 ],
               ),
+              SizedBox(
+                height: 40,
+              ),
+              Center(
+                child: RaisedButton(
+                  color: Colors.grey[900],
+                  child: Text(
+                    "Add",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: add,
+                ),
+              ),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Text(
+            "+",
+            style: TextStyle(
+              fontSize: 40,
+            ),
+          ),
+          foregroundColor: Colors.black45,
+          onPressed: add,
+          backgroundColor: Colors.grey[200],
         ),
       ),
     );
