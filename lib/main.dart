@@ -116,7 +116,7 @@ class _NinjaAppState extends State<NinjaApp> {
               ),
               Center(
                 child: RaisedButton(
-                  color: Colors.grey[900],
+                  color: Colors.grey[700],
                   child: Text(
                     "Add",
                     style: TextStyle(
